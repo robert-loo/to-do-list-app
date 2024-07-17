@@ -1,5 +1,11 @@
 # ToDoListApp Project - README (Phase 1)
- 
+
+##NOTE
+
+When installing the project, you may encounter an error indicating that ToDoListData.xcdatamodeld is missing, causing the file to appear in red. To resolve this, remove the reference to this file from the project. Next, navigate to the "Core Data" folder in the project navigator, right-click, and select "Add Files to ToDoListApp" Locate and add the ToDoListData.xcdatamodeld file. Once added, you should be able to run the project successfully.
+
+![Screenshot 2024-07-17 at 10 19 45](https://github.com/user-attachments/assets/4b306564-acaa-4087-a245-eef5c694b9da)
+![Screenshot 2024-07-17 at 10 19 25](https://github.com/user-attachments/assets/1623baa7-4719-46e6-b9fe-df0731686bb8)
 
 ## Overview
 
