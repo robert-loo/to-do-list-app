@@ -50,6 +50,7 @@ extension ToDoListVC {
                 print("--- error : ", error.localizedDescription)
             } else if let arrToDoList = arrToDoList {
                 self.arrToDoList = arrToDoList.sorted(by: { $0.date! > $1.date! })
+                // could we please try to remove these force unwraps? Maybe nil coalescing with a default value could be a good solution.
                 DispatchQueue.main.async {
                     self.tblToDoList.reloadData()
                 }
@@ -83,6 +84,7 @@ extension ToDoListVC: UITableViewDelegate, UITableViewDataSource {
         switch self.arrToDoListDisplayType[indexPath.section] {
         case .list:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoListCell", for: indexPath) as! ToDoListCell
+            // Try to avoid force casting like this,  it may crash the application when a simple warning that something went wrong could be enough.
             let dict = self.arrToDoList[indexPath.row]
             
             cell.tfTitle.isHidden = true
@@ -104,6 +106,7 @@ extension ToDoListVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .addNewTask:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoListCell", for: indexPath) as! ToDoListCell
+            // Try to avoid force casting like this,  it may crash the application when a simple warning that something went wrong could be enough.
             
             cell.tfTitle.isHidden = false
             cell.lblTitle.isHidden = true

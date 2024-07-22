@@ -12,6 +12,7 @@ extension UIViewController {
     
     var className: String {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!;
+        // could we please try to remove these force unwraps? Maybe nil coalescing with a default value could be a good solution.
     }
     
     func setTitleToBar(title: String, isLargeDisplayEnable: Bool, isNormalTitle: Bool) {
@@ -20,6 +21,7 @@ extension UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.title = title
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Chalkboard SE Regular", size: 17.0)!]
+            // could we please try to remove these force unwraps? Maybe nil coalescing with a default value could be a good solution.
             self.navigationController?.view.tintColor = .black
         } else {
             self.navigationItem.enableMultilineTitle()

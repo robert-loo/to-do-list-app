@@ -32,6 +32,7 @@ class DBHelperModel {
         
         do {
             let entity = NSEntityDescription.insertNewObject(forEntityName: self.entityName, into: context) as! ModelToDoList
+            // Try to avoid force casting like this,  it may crash the application when a simple warning that something went wrong could be enough.
             entity.isSelected = isSelected
             entity.title = title
             entity.date = date

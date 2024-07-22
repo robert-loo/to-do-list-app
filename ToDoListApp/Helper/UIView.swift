@@ -54,6 +54,7 @@ extension UIView {
     @IBInspectable var borderColor: UIColor? {
         get {
             return UIColor(cgColor: layer.borderColor!)
+            // could we please try to remove these force unwraps? Maybe nil coalescing with a default value could be a good solution.
         }
         set {
             layer.borderColor = newValue?.withAlphaComponent(0.7).cgColor
