@@ -31,13 +31,11 @@ class DBHelperModel {
         let context = persistentContainer.viewContext
         
         do {
-            if let entity = NSEntityDescription.insertNewObject(forEntityName: self.entityName, into: context) as? ModelToDoList {
-                // Try to avoid force casting like this,  it may crash the application when a simple warning that something went wrong could be enough.
-                entity.isSelected = isSelected
-                entity.title = title
-                entity.date = date
-                try context.save()
-            }
+            let entity = NSEntityDescription.insertNewObject(forEntityName: self.entityName, into: context) as! ModelToDoList
+            entity.isSelected = isSelected
+            entity.title = title
+            entity.date = date
+            try context.save()
         } catch {
             print("--- error : ", error.localizedDescription)
         }

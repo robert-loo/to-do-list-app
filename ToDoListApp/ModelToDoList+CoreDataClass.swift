@@ -2,7 +2,7 @@
 //  ModelToDoList+CoreDataClass.swift
 //  ToDoListApp
 //
-//  Created by Himanshu Gajera on 21/07/24.
+//  Created by Robert Loo
 //
 //
 

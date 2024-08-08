@@ -11,8 +11,7 @@ import Foundation
 extension UIViewController {
     
     var className: String {
-        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""
-        // could we please try to remove these force unwraps? Maybe nil coalescing with a default value could be a good solution.
+        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!;
     }
     
     func setTitleToBar(title: String, isLargeDisplayEnable: Bool, isNormalTitle: Bool) {
@@ -20,10 +19,7 @@ extension UIViewController {
             navigationItem.largeTitleDisplayMode = .automatic
             navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.title = title
-            if let font = UIFont(name: "Chalkboard SE Regular", size: 17.0) {
-                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
-            }
-            // could we please try to remove these force unwraps? Maybe nil coalescing with a default value could be a good solution.
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Chalkboard SE Regular", size: 17.0)!]
             self.navigationController?.view.tintColor = .black
         } else {
             self.navigationItem.enableMultilineTitle()
@@ -96,19 +92,4 @@ extension UIViewController {
             }
         }
     }
-}
-
-extension UITextField {
-    func setStrikethrough(text: String) {
-        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
-        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
-        self.attributedText = attributeString
-    }
-}
-
-// Extension to safely access collection elements by index
-extension Collection where Indices.Iterator.Element == Index {
-   public subscript(safe index: Index) -> Iterator.Element? {
-     return (startIndex <= index && index < endIndex) ? self[index] : nil
-   }
 }

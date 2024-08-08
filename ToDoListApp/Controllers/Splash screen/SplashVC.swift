@@ -18,9 +18,7 @@ class SplashVC: UIViewController {
     
     @IBAction func btnGetStarted(_ sender: UIButton) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "ToDoListVC") as? ToDoListVC {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        // Try to avoid force casting like this,  it may crash the application when a simple warning that something went wrong could be enough.
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ToDoListVC") as! ToDoListVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
