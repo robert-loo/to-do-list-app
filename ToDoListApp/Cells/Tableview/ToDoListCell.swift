@@ -11,7 +11,6 @@ class ToDoListCell: UITableViewCell {
     
     //MARK: - IBOutlets
     @IBOutlet weak var btnCheckMark: UIButton!
-    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tfTitle: UITextField!
     
     //MARK: - Variables
@@ -29,9 +28,9 @@ class ToDoListCell: UITableViewCell {
     func updateTextStyle(isSelected: Bool, title: String?) {
         guard let title = title else { return }
         if isSelected {
-            lblTitle.setStrikethrough(text: title)
+            self.tfTitle.setStrikethrough(text: title)
         } else {
-            lblTitle.attributedText = NSAttributedString(string: title)
+            self.tfTitle.attributedText = NSAttributedString(string: title)
         }
     }
 
